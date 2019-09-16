@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TimeSeriesDataGenerator demo</title>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="./time_series_data_generator.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script type="text/javascript">
+var series = [{
+  name: "Series 1",
+  data: TimeSeriesDataGenerator.generate('2017/04/01', '2020/03/31', 30, {
+    base: 1000,
+    random: 100,
+    waves: [[365, 100], [365*10, 100]],
+  }),
+}];
+var options = {
+  chart: {
+    height: 400,
+    width: "80%",
+    type: "area",
+  },
+  series: series,
+  xaxis: {
+    type: 'datetime',
+  },
+};
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
+</script>
+</body>
+</html>
