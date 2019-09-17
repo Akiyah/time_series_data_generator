@@ -8,44 +8,44 @@
 <body>
 <div id="chart"></div>
 <script type="text/javascript">
-const generator = new TimeSeriesDataGenerator('2015/04/01', '2020/03/31', 30);
-const series = [{
-  name: "Series 1",
-  data: generator.generateValues({
-    base: 1000,
-    random: 0,
-    waves: [[365, 100], [365*10, 100]],
-  }),
-}, {
-  name: "Series 2",
-  data: generator.generateValues({
-    base: 500,
-    random: 50,
-    waves: [[365, 50], [365*10, 50]],
-  }),
-}, {
-  name: "Series 3",
-  data: generator.generateValues({
-    base: 300,
-    random: 30,
-    waves: [[365, 30], [365*10, 30]],
-  }),
-}];
-const options = {
-  chart: {
-    height: 400,
-    width: "80%",
-    type: "area",
-    stacked: true,
-  },
-  series: series,
-  xaxis: {
-    type: 'datetime',
-    categories: generator.generateDates(),
-  },
-};
-const chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
+  const generator = new TimeSeriesDataGenerator('2015/04/01', '2020/03/31', 30);
+  const series = [{
+    name: "Series 1",
+    data: generator.generateValues({
+      base: 1000,
+      random: 10,
+      waves: [[365, 100], [365*10, 100]],
+    }),
+  }, {
+    name: "Series 2",
+    data: generator.generateValues({
+      base: 500,
+      random: 50,
+      waves: [[365, 50], [365*10, 50]],
+    }),
+  }, {
+    name: "Series 3",
+    data: generator.generateValues({
+      base: 300,
+      random: 30,
+      waves: [[365, 30], [365*10, 30]],
+    }),
+  }];
+  const options = {
+    chart: {
+      height: 400,
+      width: "80%",
+      type: "area",
+      stacked: true,
+    },
+    series: series,
+    xaxis: {
+      type: 'datetime',
+      categories: generator.generateDates(),
+    },
+  };
+  const chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
 </script>
 </body>
 </html>
